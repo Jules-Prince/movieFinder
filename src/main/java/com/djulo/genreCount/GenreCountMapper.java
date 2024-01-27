@@ -1,4 +1,4 @@
-package com.djulo;
+package com.djulo.genreCount;
 
 import java.io.IOException;
 import org.apache.hadoop.io.IntWritable;
@@ -11,12 +11,14 @@ public class GenreCountMapper extends Mapper<Object, Text, Text, IntWritable> {
     private Text genre = new Text();
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-        String[] parts = value.toString().split(",");
+        String line = value.toString();
+        String[] parts = line.split(",");
         if(parts.length == 3){
             String[] genres = parts[2].split("\\|");
             for(String g : genres){
-                genre.set(g);
-                context.write(genre, one);
+                Text outputKey = new Text(g.toUpperCase().trim());
+                IntWritable outputValue = new IntWritable(1);
+                context.write(outputKey, outputValue);
             }
         }
     }

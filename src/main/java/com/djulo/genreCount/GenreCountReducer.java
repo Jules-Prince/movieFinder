@@ -1,4 +1,4 @@
-package com.djulo;
+package com.djulo.genreCount;
 
 import java.io.IOException;
 import org.apache.hadoop.io.IntWritable;
