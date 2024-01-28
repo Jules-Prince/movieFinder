@@ -20,7 +20,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.djulo.averageScoreMovieID.AverageScoreMovie</mainClass>
+                            <mainClass>com.djulo.highestRateMoviePerUser.HighestRatedMoviePerUser</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
