@@ -27,3 +27,4 @@ replay_pid*
 
 META-INF/
 target/*
+.vscode/

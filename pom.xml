@@ -20,7 +20,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.djulo.GenreCount</mainClass>
+                            <mainClass>com.djulo.movieGenre.MovieGenreCount</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
