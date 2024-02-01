@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName;
+package com.djulo;
 
 import java.io.IOException;
 
@@ -11,14 +11,13 @@ import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-import com.djulo.highestRateMoviePerUser.HighestRatedMoviePerUser;
-import com.djulo.userHighestRateMovieName.mapper.MovieCountMapper;
-import com.djulo.userHighestRateMovieName.mapper.MovieIDMovieNameMapper;
-import com.djulo.userHighestRateMovieName.mapper.MovieIDUserIDMapper;
-import com.djulo.userHighestRateMovieName.mapper.RatingMapper;
-import com.djulo.userHighestRateMovieName.reducer.HighestRatedReducer;
-import com.djulo.userHighestRateMovieName.reducer.MovieCountReducer;
-import com.djulo.userHighestRateMovieName.reducer.UserCountMovieName;
+import com.djulo.mapper.MovieCountMapper;
+import com.djulo.mapper.MovieIDMovieNameMapper;
+import com.djulo.mapper.MovieIDUserIDMapper;
+import com.djulo.mapper.RatingMapper;
+import com.djulo.reducer.HighestRatedReducer;
+import com.djulo.reducer.MovieCountReducer;
+import com.djulo.reducer.UserCountMovieName;
 
 public class UserHighestRateMovieName {
 
@@ -29,7 +28,7 @@ public class UserHighestRateMovieName {
             System.exit(-1);
         }
 
-        Job job1 = findBestMovieForEachUser(args);
+        /*Job job1 = findBestMovieForEachUser(args);
 
         if (job1.waitForCompletion(true)) 
             System.out.println("JOB 1 IS DONE !");
@@ -38,16 +37,16 @@ public class UserHighestRateMovieName {
         Job job2 = countNumberOfUserLikeEachMovie(args);
 
         if (job2.waitForCompletion(true))
-            System.out.println("JOB 2 IS DONE !");
+            System.out.println("JOB 2 IS DONE !");*/
 
         
-        Job job3 = mapAllMovieWithTheSameAmountOfPeopleThatLikeThme(args);
+        Job job3 = mapAllMovieWithTheSameAmountOfPeopleThatLikeThem(args);
 
         if (job3.waitForCompletion(true))
             System.out.println("JOB 3 IS DONE !");
     }
 
-    private static Job mapAllMovieWithTheSameAmountOfPeopleThatLikeThme(String[] args) throws IOException {
+    private static Job mapAllMovieWithTheSameAmountOfPeopleThatLikeThem(String[] args) throws IOException {
         Configuration conf3 = new Configuration();
         Job job3 = Job.getInstance(conf3, "movie count");
 
@@ -94,7 +93,7 @@ public class UserHighestRateMovieName {
         Configuration conf1 = new Configuration();
 
         Job job1 = Job.getInstance(conf1, "highestRatedMoviePerUser");
-        job1.setJarByClass(HighestRatedMoviePerUser.class);
+        job1.setJarByClass(UserHighestRateMovieName.class);
 
         job1.setMapperClass(RatingMapper.class);
         job1.setReducerClass(HighestRatedReducer.class);

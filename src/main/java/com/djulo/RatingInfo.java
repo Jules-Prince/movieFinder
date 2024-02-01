@@ -1,4 +1,4 @@
-package com.djulo.highestRateMoviePerUser;
+package com.djulo;
 
 import java.io.DataInput;
 import java.io.DataOutput;

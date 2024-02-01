@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName.reducer;
+package com.djulo.reducer;
 
 import java.io.IOException;
 import java.util.ArrayList;

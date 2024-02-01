@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName.reducer;
+package com.djulo.reducer;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class MovieCountReducer extends Reducer<IntWritable, Text, Text, Text> {
 
         String formattedMovieList = movieList.substring(0, movieList.length() - 2);
 
-        context.write(new Text(key.toString() + " have like the following film(s) : "), new Text(formattedMovieList));
+        context.write(new Text(key.toString() + " have liked the following film(s) : "), new Text(formattedMovieList));
     }
     
 }

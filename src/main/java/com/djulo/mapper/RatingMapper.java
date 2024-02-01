@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName.mapper;
+package com.djulo.mapper;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-import com.djulo.userHighestRateMovieName.RatingInfo;
+import com.djulo.RatingInfo;
 
 public class RatingMapper extends Mapper<Object, Text, Text, RatingInfo> {
 

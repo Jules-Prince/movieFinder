@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName.mapper;
+package com.djulo.mapper;
 
 import java.io.IOException;
 

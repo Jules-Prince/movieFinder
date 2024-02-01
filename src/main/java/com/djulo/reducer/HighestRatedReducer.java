@@ -1,13 +1,13 @@
-package com.djulo.highestRateMoviePerUser;
+package com.djulo.reducer;
 
 import java.io.IOException;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-import com.djulo.userHighestRateMovieName.RatingInfo;
+import com.djulo.RatingInfo;
 
-public class HighestRatedReducer extends Reducer<Text, RatingInfo, Text, RatingInfo> {
+public class HighestRatedReducer extends Reducer<Text, RatingInfo, Text, Text> {
 
     @Override
     protected void reduce(Text key, Iterable<RatingInfo> values, Context context)
@@ -21,7 +21,7 @@ public class HighestRatedReducer extends Reducer<Text, RatingInfo, Text, RatingI
         }
 
         if (highestRated != null) {
-            context.write(key, highestRated);
+            context.write(key, new Text(highestRated.getMovieId()));
         }
     }
 }

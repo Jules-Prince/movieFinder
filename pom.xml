@@ -21,7 +21,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.djulo.userHighestRateMovieName.UserHighestRateMovieName</mainClass>
+                            <mainClass>com.djulo.UserHighestRateMovieName</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

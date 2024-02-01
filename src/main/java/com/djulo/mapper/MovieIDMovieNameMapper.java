@@ -1,4 +1,4 @@
-package com.djulo.userHighestRateMovieName.mapper;
+package com.djulo.mapper;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.log4j.Logger;
 
-import com.djulo.userHighestRateMovieName.reducer.UserCountMovieName;
+import com.djulo.reducer.UserCountMovieName;
 
 public class MovieIDMovieNameMapper extends Mapper<Object, Text, Text, Text> {
 
