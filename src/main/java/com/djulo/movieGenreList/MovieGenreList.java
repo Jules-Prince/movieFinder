@@ -20,7 +20,6 @@ public class MovieGenreList {
         }
 
         Configuration conf = new Configuration();
-        conf.set("genre", args[2]);
 
         String[] files = new GenericOptionsParser(conf, args).getRemainingArgs();
         Path input = new Path(files[0]);

@@ -75,6 +75,8 @@ services:
     image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
     container_name: historyserver
     restart: always
+    expose:
+      - "8188"
     ports:
       - "8188:8188"
       - "19888:19888"

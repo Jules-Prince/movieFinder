@@ -7,6 +7,8 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
+import com.djulo.userHighestRateMovieName.RatingInfo;
+
 public class HighestRatedMoviePerUser {
 
     public static void main(String[] args) throws Exception {
