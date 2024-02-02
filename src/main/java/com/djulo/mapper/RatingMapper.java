@@ -21,7 +21,6 @@ public class RatingMapper extends Mapper<Object, Text, Text, RatingInfo> {
 
         String[] columns = value.toString().split(",");
 
-        // Ensure that the column length is correct before parsing
         if (columns.length == 4) {
             try {
                 userId.set(columns[0]);

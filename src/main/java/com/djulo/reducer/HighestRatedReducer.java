@@ -8,8 +8,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import com.djulo.RatingInfo;
 
 public class HighestRatedReducer extends Reducer<Text, RatingInfo, Text, Text> {
-
-    @Override
+    
     protected void reduce(Text key, Iterable<RatingInfo> values, Context context)
             throws IOException, InterruptedException {
         RatingInfo highestRated = null;

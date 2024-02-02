@@ -10,7 +10,7 @@ import java.util.Map;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class UserCountMovieName extends Reducer<Text, Text, Text, Text> {
+public class UserCountMovieNameReducer extends Reducer<Text, Text, Text, Text> {
 
     private Map<String, String> movieInfoMap = new HashMap<>();
 

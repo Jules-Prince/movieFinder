@@ -9,7 +9,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class MovieCountMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
-
     private Text movieName = new Text();
 
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {

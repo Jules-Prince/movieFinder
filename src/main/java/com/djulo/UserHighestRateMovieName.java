@@ -17,7 +17,7 @@ import com.djulo.mapper.MovieIDUserIDMapper;
 import com.djulo.mapper.RatingMapper;
 import com.djulo.reducer.HighestRatedReducer;
 import com.djulo.reducer.MovieCountReducer;
-import com.djulo.reducer.UserCountMovieName;
+import com.djulo.reducer.UserCountMovieNameReducer;
 
 public class UserHighestRateMovieName {
 
@@ -28,18 +28,16 @@ public class UserHighestRateMovieName {
             System.exit(-1);
         }
 
-        /*Job job1 = findBestMovieForEachUser(args);
+        Job job1 = findFavouriteMovieForEachUser(args);
 
-        if (job1.waitForCompletion(true)) 
+        if (job1.waitForCompletion(true))
             System.out.println("JOB 1 IS DONE !");
-        
 
         Job job2 = countNumberOfUserLikeEachMovie(args);
 
         if (job2.waitForCompletion(true))
-            System.out.println("JOB 2 IS DONE !");*/
+            System.out.println("JOB 2 IS DONE !");
 
-        
         Job job3 = mapAllMovieWithTheSameAmountOfPeopleThatLikeThem(args);
 
         if (job3.waitForCompletion(true))
@@ -47,65 +45,68 @@ public class UserHighestRateMovieName {
     }
 
     private static Job mapAllMovieWithTheSameAmountOfPeopleThatLikeThem(String[] args) throws IOException {
-        Configuration conf3 = new Configuration();
-        Job job3 = Job.getInstance(conf3, "movie count");
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf, "movie count");
 
-        job3.setJarByClass(UserHighestRateMovieName.class);
+        job.setJarByClass(UserHighestRateMovieName.class);
 
-        job3.setMapperClass(MovieCountMapper.class);
-        job3.setReducerClass(MovieCountReducer.class);
+        job.setMapperClass(MovieCountMapper.class);
+        job.setReducerClass(MovieCountReducer.class);
 
-        job3.setOutputKeyClass(IntWritable.class);
-        job3.setOutputValueClass(Text.class);
+        job.setOutputKeyClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
-        job3.setInputFormatClass(TextInputFormat.class);
-        job3.setOutputFormatClass(TextOutputFormat.class);
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
 
-        TextInputFormat.addInputPath(job3, new Path(args[2] + "job2/part-r-00000"));
-        TextOutputFormat.setOutputPath(job3, new Path(args[2] + "job3/"));
-        return job3;
+        TextInputFormat.addInputPath(job, new Path(args[2] + "job2/part-r-00000"));
+        TextOutputFormat.setOutputPath(job, new Path(args[2] + "job3/"));
+
+        return job;
     }
 
     private static Job countNumberOfUserLikeEachMovie(String[] args) throws IOException {
-        Configuration conf2 = new Configuration();
+        Configuration conf = new Configuration();
 
-        Job job2 = Job.getInstance(conf2, "User Count by Movie Name");
-        job2.setJarByClass(UserHighestRateMovieName.class);
+        Job job = Job.getInstance(conf, "User Count by Movie Name");
+        job.setJarByClass(UserHighestRateMovieName.class);
 
-        MultipleInputs.addInputPath(job2, new Path(args[1]),
+        MultipleInputs.addInputPath(job, new Path(args[1]),
                 TextInputFormat.class, MovieIDMovieNameMapper.class);
-        MultipleInputs.addInputPath(job2, new Path(args[2] + "job1/part-r-00000"),
+        MultipleInputs.addInputPath(job, new Path(args[2] + "job1/part-r-00000"),
                 TextInputFormat.class, MovieIDUserIDMapper.class);
 
-        job2.setReducerClass(UserCountMovieName.class);
-        job2.setNumReduceTasks(1);
+        job.setReducerClass(UserCountMovieNameReducer.class);
+        job.setNumReduceTasks(1);
 
-        job2.setMapOutputKeyClass(Text.class);
-        job2.setMapOutputValueClass(Text.class);
-        job2.setOutputKeyClass(Text.class);
-        job2.setOutputValueClass(Text.class);
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(Text.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
 
-        TextOutputFormat.setOutputPath(job2, new Path(args[2] + "job2/"));
-        return job2;
+        TextOutputFormat.setOutputPath(job, new Path(args[2] + "job2/"));
+
+        return job;
     }
 
-    private static Job findBestMovieForEachUser(String[] args) throws IOException {
-        Configuration conf1 = new Configuration();
+    private static Job findFavouriteMovieForEachUser(String[] args) throws IOException {
+        Configuration conf = new Configuration();
 
-        Job job1 = Job.getInstance(conf1, "highestRatedMoviePerUser");
-        job1.setJarByClass(UserHighestRateMovieName.class);
+        Job job = Job.getInstance(conf, "highestRatedMoviePerUser");
+        job.setJarByClass(UserHighestRateMovieName.class);
 
-        job1.setMapperClass(RatingMapper.class);
-        job1.setReducerClass(HighestRatedReducer.class);
+        job.setMapperClass(RatingMapper.class);
+        job.setReducerClass(HighestRatedReducer.class);
 
-        job1.setOutputKeyClass(Text.class);
-        job1.setOutputValueClass(RatingInfo.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(RatingInfo.class);
 
-        job1.setInputFormatClass(TextInputFormat.class);
-        job1.setOutputFormatClass(TextOutputFormat.class);
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
 
-        TextInputFormat.addInputPath(job1, new Path(args[0]));
-        TextOutputFormat.setOutputPath(job1, new Path(args[2] + "job1/"));
-        return job1;
+        TextInputFormat.addInputPath(job, new Path(args[0]));
+        TextOutputFormat.setOutputPath(job, new Path(args[2] + "job1/"));
+
+        return job;
     }
 }
