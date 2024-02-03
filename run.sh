@@ -77,12 +77,12 @@ gettingTheResults() (
 
 docker-compose up -d
 
-wait_for_container_health "namenode"
-wait_for_container_health "resourcemanager"
+waitForContainerHealth "namenode"
+waitForContainerHealth "resourcemanager"
     
-put_files_in_namenode
-build_project
-exec_movie_finder
+putFilesInNamenode
+buildProject
+execMovieFinder
 
 if [ "$1" == "-p" ] || [ "$1" == "--print" ] || [ "$2" == "-p" ] || [ "$2" == "--print" ]; then
     printingResutls
