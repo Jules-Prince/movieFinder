@@ -18,7 +18,7 @@ public class MovieCountReducer extends Reducer<IntWritable, Text, Text, Text> {
 
         String formattedMovieList = movieList.substring(0, movieList.length() - 2);
 
-        context.write(new Text(key.toString() + " have liked the following film(s) : "), new Text(formattedMovieList));
+        context.write(new Text(key.toString() + " users have liked the following film(s) : "), new Text(formattedMovieList));
     }
     
 }
