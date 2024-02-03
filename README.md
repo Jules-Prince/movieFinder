@@ -76,7 +76,7 @@ Connect now to the resourcemanager container :
 docker exec -it resourcemanager bash
 ```
 
-Let's execute our hadoop jobs : 
+Execute hadoop jobs : 
 
 ```bash
 hadoop jar hadoop/movieFinders/movieFinder-1.0-SNAPSHOT.jar /user/root/movie/data/ratings.csv /user/root/movie/data/movies.csv /out/
@@ -86,4 +86,13 @@ When it's done you can retrieve the output files :
 
 ```bash
 hadoop fs -get /out/job3/* /hadoop/movieFinder/
+```
+
+### 👽️👽️👽️ Formating 👽️👽️👽️
+
+The files we get from the archive caused trouble and false the result due to certain movie who are not in the right movie.
+To solve this issue you can execute the file **csvFormater.py**
+
+```bash
+python3 csvFormater.py
 ```
