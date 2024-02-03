@@ -5,6 +5,8 @@ Hadoop Map Reduce movie finder project
 
 Wrote an article 📝 about it : [Dev.to Article](https://dev.to/djulo/create-a-hadoop-map-reduce-project-with-multiple-mapper-multiple-jobs-and-multiple-inputs-48bp)
 
+Made a video 📹 about it : [Hadoop video](https://www.youtube.com/watch?v=B56K7t-Rm_o)
+
 This project will take two files (ratings.csv) and (movies.csv) and count the numbers of users have for favourite film(s) a given list.
 
 The output file look like this :
