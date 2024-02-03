@@ -1,8 +1,9 @@
 
-# MovieFinder
+# :fire::fire::fire: MovieFinder :fire:🔥 :fire:
+
 Hadoop Map Reduce movie finder project
 
-Wrote an article about it : [Dev.to Article](https://dev.to/djulo/create-a-hadoop-map-reduce-project-with-multiple-mapper-multiple-jobs-and-multiple-inputs-48bp)
+Wrote an article 📝 about it : [Dev.to Article](https://dev.to/djulo/create-a-hadoop-map-reduce-project-with-multiple-mapper-multiple-jobs-and-multiple-inputs-48bp)
 
 This project will take two files (ratings.csv) and (movies.csv) and count the numbers of users have for favourite film(s) a given list.
 
@@ -15,8 +16,19 @@ The output file look like this :
 
 194 users have liked the following film(s) : 12 Angry Men (1957)
 ```
+### :pencil2::pencil2::pencil2: Scripting :pencil2: :pencil2: :pencil2:
 
-### Build the app
+I wrote the script **run.sh** to run the images, build the project, execute the jobs and gatting the results.
+
+```bash
+sudo ./run.sh -p
+```
+
+You can use arguments :
+- "-p" or "--print" to print the results
+- "-g" or "--get" to get the results on your machine . There will be in ./data/
+
+### 🛠️ 🛠️ 🛠️ Building 🛠️ 🛠️ 🛠️
 
 To build the app :
 
@@ -30,7 +42,7 @@ Move the jar file to the data folder :
 mv target/movieFinder-1.0-SNAPSHOT.jar data/
 ```
 
-###  How to run
+###  🚀🚀🚀 Running 🚀🚀🚀
 
 To run the Hadoop stack use dopcker compose as : 
 
