@@ -20,7 +20,7 @@ The output file look like this :
 ```
 ### :pencil2::pencil2::pencil2: Scripting :pencil2: :pencil2: :pencil2:
 
-I wrote the script **run.sh** to run the images, build the project, execute the jobs and gatting the results.
+I wrote the script **run.sh** to run the images, build the project, execute the jobs and getting the results.
 
 ```bash
 sudo ./run.sh -p
