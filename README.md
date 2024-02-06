@@ -60,7 +60,7 @@ docker exec -it namenode bash
 
 In the folder *data/* put the movies.csv and ratings.csv
 
-Use hadoop fs comment to put the files in hte namenode :
+Use hadoop fs comment to put the files in the namenode :
 
 ```bash
 hadoop fs -mkdir -p /user/root/movie/data
@@ -92,7 +92,7 @@ hadoop fs -get /out/job3/* /hadoop/movieFinder/
 
 ### 👽️👽️👽️ Formating 👽️👽️👽️
 
-The files we get from the archive caused trouble and false the result due to certain movie who are not in the right movie.
+The files we get from the archive caused trouble and false the result due to certain movie who are not in the right format.
 To solve this issue you can execute the file **csvFormater.py**
 
 ```bash
